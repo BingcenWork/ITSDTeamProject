@@ -33,7 +33,9 @@ import utils.StaticConfFiles;
  *
  */
 public class Initalize implements EventProcessor {
-
+	static Tile tile00,tile01,tile02,tile03,tile04,tile10,tile11,tile12,tile13,tile14,tile20,tile21,tile22,tile23,tile24;
+	static Tile tile30,tile31,tile32,tile33,tile34,tile40,tile41,tile42,tile43,tile44,tile50,tile51,tile52,tile53,tile54;
+	static Tile tile60,tile61,tile62,tile63,tile64,tile70,tile71,tile72,tile73,tile74,tile80,tile81,tile82,tile83,tile84;
 	@Override
 	public void processEvent(ActorRef out, GameState gameState, JsonNode message) {
 		// hello this is a change
@@ -45,7 +47,11 @@ public class Initalize implements EventProcessor {
 		// User 1 makes a change
 		//CommandDemo.executeDemo(out); // this executes the command demo, comment out this when implementing your solution
 		//CheckMoveLogic.executeDemo(out);
-		initAllTile(out);
+
+
+		initAllTile(out);//by Luo
+		initPlayer(out);//by Luo
+
 
 
 	}
@@ -55,62 +61,66 @@ public class Initalize implements EventProcessor {
 
 		// addPlayer1Notification
 		BasicCommands.addPlayer1Notification(out, "addPlayer1Notification", 2);
-		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
 		BasicCommands.addPlayer1Notification(out, "initDrawAllTile", 2);// 发出消息持续两秒
-		Tile tile00 = BasicObjectBuilders.loadTile(0, 0);
-		Tile tile01 = BasicObjectBuilders.loadTile(0, 1);
-		Tile tile02 = BasicObjectBuilders.loadTile(0, 2);
-		Tile tile03 = BasicObjectBuilders.loadTile(0, 3);
-		Tile tile04 = BasicObjectBuilders.loadTile(0, 4);
+		 tile00 = BasicObjectBuilders.loadTile(0, 0);
+		 tile01 = BasicObjectBuilders.loadTile(0, 1);
+		 tile02 = BasicObjectBuilders.loadTile(0, 2);
+		 tile03 = BasicObjectBuilders.loadTile(0, 3);
+		 tile04 = BasicObjectBuilders.loadTile(0, 4);
 
-		Tile tile10 = BasicObjectBuilders.loadTile(1, 0);
-		Tile tile11 = BasicObjectBuilders.loadTile(1, 1);
-		Tile tile12 = BasicObjectBuilders.loadTile(1, 2);
-		Tile tile13 = BasicObjectBuilders.loadTile(1, 3);
-		Tile tile14 = BasicObjectBuilders.loadTile(1, 4);
+		 tile10 = BasicObjectBuilders.loadTile(1, 0);
+		 tile11 = BasicObjectBuilders.loadTile(1, 1);
+		 tile12 = BasicObjectBuilders.loadTile(1, 2);
+		 tile13 = BasicObjectBuilders.loadTile(1, 3);
+		 tile14 = BasicObjectBuilders.loadTile(1, 4);
 
-		Tile tile20 = BasicObjectBuilders.loadTile(2, 0);
-		Tile tile21 = BasicObjectBuilders.loadTile(2, 1);
-		Tile tile22 = BasicObjectBuilders.loadTile(2, 2);
-		Tile tile23 = BasicObjectBuilders.loadTile(2, 3);
-		Tile tile24 = BasicObjectBuilders.loadTile(2, 4);
+		 tile20 = BasicObjectBuilders.loadTile(2, 0);
+		 tile21 = BasicObjectBuilders.loadTile(2, 1);
+		 tile22 = BasicObjectBuilders.loadTile(2, 2);
+		 tile23 = BasicObjectBuilders.loadTile(2, 3);
+		 tile24 = BasicObjectBuilders.loadTile(2, 4);
 
-		Tile tile30 = BasicObjectBuilders.loadTile(3, 0);
-		Tile tile31 = BasicObjectBuilders.loadTile(3, 1);
-		Tile tile32 = BasicObjectBuilders.loadTile(3, 2);
-		Tile tile33 = BasicObjectBuilders.loadTile(3, 3);
-		Tile tile34 = BasicObjectBuilders.loadTile(3, 4);
+		 tile30 = BasicObjectBuilders.loadTile(3, 0);
+		 tile31 = BasicObjectBuilders.loadTile(3, 1);
+		 tile32 = BasicObjectBuilders.loadTile(3, 2);
+		 tile33 = BasicObjectBuilders.loadTile(3, 3);
+		 tile34 = BasicObjectBuilders.loadTile(3, 4);
 
-		Tile tile40 = BasicObjectBuilders.loadTile(4, 0);
-		Tile tile41 = BasicObjectBuilders.loadTile(4, 1);
-		Tile tile42 = BasicObjectBuilders.loadTile(4, 2);
-		Tile tile43 = BasicObjectBuilders.loadTile(4, 3);
-		Tile tile44 = BasicObjectBuilders.loadTile(4, 4);
+		 tile40 = BasicObjectBuilders.loadTile(4, 0);
+		 tile41 = BasicObjectBuilders.loadTile(4, 1);
+		 tile42 = BasicObjectBuilders.loadTile(4, 2);
+		 tile43 = BasicObjectBuilders.loadTile(4, 3);
+		 tile44 = BasicObjectBuilders.loadTile(4, 4);
 
-		Tile tile50 = BasicObjectBuilders.loadTile(5, 0);
-		Tile tile51 = BasicObjectBuilders.loadTile(5, 1);
-		Tile tile52 = BasicObjectBuilders.loadTile(5, 2);
-		Tile tile53 = BasicObjectBuilders.loadTile(5, 3);
-		Tile tile54 = BasicObjectBuilders.loadTile(5, 4);
+		 tile50 = BasicObjectBuilders.loadTile(5, 0);
+		 tile51 = BasicObjectBuilders.loadTile(5, 1);
+		 tile52 = BasicObjectBuilders.loadTile(5, 2);
+		 tile53 = BasicObjectBuilders.loadTile(5, 3);
+		 tile54 = BasicObjectBuilders.loadTile(5, 4);
 
-		Tile tile60 = BasicObjectBuilders.loadTile(6, 0);
-		Tile tile61 = BasicObjectBuilders.loadTile(6, 1);
-		Tile tile62 = BasicObjectBuilders.loadTile(6, 2);
-		Tile tile63 = BasicObjectBuilders.loadTile(6, 3);
-		Tile tile64 = BasicObjectBuilders.loadTile(6, 4);
+		 tile60 = BasicObjectBuilders.loadTile(6, 0);
+		 tile61 = BasicObjectBuilders.loadTile(6, 1);
+		 tile62 = BasicObjectBuilders.loadTile(6, 2);
+		 tile63 = BasicObjectBuilders.loadTile(6, 3);
+		 tile64 = BasicObjectBuilders.loadTile(6, 4);
 
-		Tile tile70 = BasicObjectBuilders.loadTile(7, 0);
-		Tile tile71 = BasicObjectBuilders.loadTile(7, 1);
-		Tile tile72 = BasicObjectBuilders.loadTile(7, 2);
-		Tile tile73 = BasicObjectBuilders.loadTile(7, 3);
-		Tile tile74 = BasicObjectBuilders.loadTile(7, 4);
+		 tile70 = BasicObjectBuilders.loadTile(7, 0);
+		 tile71 = BasicObjectBuilders.loadTile(7, 1);
+		 tile72 = BasicObjectBuilders.loadTile(7, 2);
+		 tile73 = BasicObjectBuilders.loadTile(7, 3);
+		 tile74 = BasicObjectBuilders.loadTile(7, 4);
 
-		Tile tile80 = BasicObjectBuilders.loadTile(8, 0);
-		Tile tile81 = BasicObjectBuilders.loadTile(8, 1);
-		Tile tile82 = BasicObjectBuilders.loadTile(8, 2);
-		Tile tile83 = BasicObjectBuilders.loadTile(8, 3);
-		Tile tile84 = BasicObjectBuilders.loadTile(8, 4);
+		 tile80 = BasicObjectBuilders.loadTile(8, 0);
+		 tile81 = BasicObjectBuilders.loadTile(8, 1);
+		 tile82 = BasicObjectBuilders.loadTile(8, 2);
+		 tile83 = BasicObjectBuilders.loadTile(8, 3);
+		 tile84 = BasicObjectBuilders.loadTile(8, 4);
 
 
 		BasicCommands.drawTile(out, tile00, 0);//0默认，1高亮，2red modified by Luo
@@ -168,6 +178,80 @@ public class Initalize implements EventProcessor {
 
 	}
 
-	//init player by Luo
+	//init playerhealth by Luo
+	public static void initPlayer(ActorRef out) {
+		// setPlayer1Health
+		BasicCommands.addPlayer1Notification(out, "setPlayer1Health", 2);
+		Player humanPlayer = new Player(20, 0);
+		BasicCommands.setPlayer1Health(out, humanPlayer);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		// setPlayer2Health
+		BasicCommands.addPlayer1Notification(out, "setPlayer2Health", 2);
+		Player aiPlayer = new Player(20, 0);
+		BasicCommands.setPlayer2Health(out, aiPlayer);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		// drawUnit humanAvatar
+		BasicCommands.addPlayer1Notification(out, "drawUnit", 2);
+		Unit unit = BasicObjectBuilders.loadUnit(StaticConfFiles.humanAvatar, 001, Unit.class);
+		unit.setPositionByTile(tile12);
+		BasicCommands.drawUnit(out, unit, tile12);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+
+		// drawUnit humanAvatar
+		BasicCommands.addPlayer1Notification(out, "drawUnit2", 2);
+		Unit unit2 = BasicObjectBuilders.loadUnit(StaticConfFiles.aiAvatar, 002, Unit.class);
+		unit2.setPositionByTile(tile72);
+		BasicCommands.drawUnit(out, unit2, tile72);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+
+		// setUnitAttack
+		BasicCommands.addPlayer1Notification(out, "setUnitAttack", 2);
+		BasicCommands.setUnitAttack(out, unit, 2);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		// setUni2tAttack
+		BasicCommands.addPlayer1Notification(out, "setUnitAttack", 2);
+		BasicCommands.setUnitAttack(out, unit2, 2);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+
+		// setUnitHealth
+		BasicCommands.addPlayer1Notification(out, "setUnit2Health", 2);
+		BasicCommands.setUnitHealth(out, unit, 20);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		// setUnit2Health
+		BasicCommands.addPlayer1Notification(out, "setUnit2Health", 2);
+		BasicCommands.setUnitHealth(out, unit2, 20);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+
+
+		// Player Hand Test
+		BasicCommands.addPlayer1Notification(out, "Player Hand Test", 2);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+
+
+		// drawCard [1]
+		BasicCommands.addPlayer1Notification(out, "drawCard [1u]", 2);
+		Card hailstone_golem = BasicObjectBuilders.loadCard(StaticConfFiles.c_hailstone_golem, 0, Card.class);
+		BasicCommands.drawCard(out, hailstone_golem, 1, 0);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+
+		// drawCard [1] Highlight
+		BasicCommands.addPlayer1Notification(out, "drawCard [1u] Highlight", 2);
+		BasicCommands.drawCard(out, hailstone_golem, 1, 1);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+
+	}
+
+
+
 
 }
